@@ -1,12 +1,12 @@
-DIR = "/home/skywalker/Cloner/"
+DIR = "/home/skywalker/RealVC/"
 
 
 import os
 from RVC.easy_sync import Channel
-logs_folder ='{DIR}drive/MyDrive/project-main/logs'
-weights_folder = '{DIR}drive/MyDrive/project-main/assets/weights'
-if not "logs_backup" in locals(): logs_backup = Channel('{DIR}RVC/logs',logs_folder,every=30,exclude="mute")
-if not "weights_backup" in locals(): weights_backup = Channel('{DIR}RVC/assets/weights',weights_folder,every=30)
+logs_folder =f'{DIR}drive/MyDrive/project-main/logs'
+weights_folder = f'{DIR}drive/MyDrive/project-main/assets/weights'
+if not "logs_backup" in locals(): logs_backup = Channel(f'{DIR}RVC/logs',logs_folder,every=30,exclude="mute")
+if not "weights_backup" in locals(): weights_backup = Channel(f'{DIR}RVC/assets/weights',weights_folder,every=30)
 
 # if os.path.exists('{DIR}drive/MyDrive'):
 #     if not os.path.exists(logs_folder): os.makedirs(logs_folder)
@@ -19,7 +19,7 @@ if not "weights_backup" in locals(): weights_backup = Channel('{DIR}RVC/assets/w
 
 import os
 from pytube import YouTube
-from IPython.display import clear_output
+# from IPython.display import clear_output
 
 def calculate_audio_duration(file_path):
     duration_seconds = len(AudioSegment.from_file(file_path)) / 1000.0
@@ -30,7 +30,7 @@ os.chdir(f"{DIR}RVC")
 
 #@markdown <small> Give your AI Voice Model a name you won't forget 😉 Avoid weird characters, spaces, symbols, etc.
 model_name = 'My-Voice' #@param {type:"string"}
-dataset_folder = '{DIR}dataset' #@param {type:"string"}
+dataset_folder = f'{DIR}dataset' #@param {type:"string"}
 # or_paste_a_youtube_link=""#@param {type:"string"}
 # if or_paste_a_youtube_link !="":
 #     youtube_to_wav(or_paste_a_youtube_link)
@@ -62,7 +62,8 @@ result = subprocess.run(command, shell=True, check=True)
 
 with open(f'./logs/{model_name}/preprocess.log','r') as f:
     if 'end preprocess' in f.read():
-        clear_output()
+        # clear_output()
+        1>0
         # display(Button(description="\u2714 Success", button_style="success"))
     else:
         print("Error preprocessing data... Make sure your dataset folder is correct.")
@@ -84,7 +85,8 @@ result = subprocess.run(command, shell=True, check=True)
 
 with open(f'{addon_path}logs/{model_name}/extract_f0_feature.log','r') as f:
     if 'all-feature-done' in f.read():
-        clear_output()
+        # clear_output()
+        1>0
     else:
         print("Error preprocessing data... Make sure your data was preprocessed.")
 
@@ -173,6 +175,3 @@ training_log = train_index(model_name, 'v2')
 
 for line in training_log:
     print(line)
-    if 'adding' in line:
-        clear_output()
-        # display(Button(description="\u2714 Success", button_style="success"))

@@ -4,7 +4,9 @@
 pip install pip==22.0
 
 # Set the directory path
-DIR="/home/azureuser/cloudfiles/code/Users/Ayush.Gupta/myproject"
+DIR=$(pwd)
+DIR="${DIR}/"
+# DIR="/home/darth/RealVC/"
 
 mkdir ${DIR}
 
