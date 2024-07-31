@@ -1,5 +1,7 @@
 DIR = "/home/skywalker/RealVC/"
 
+import os
+DIR = os.getcwd() + "/"
 
 import os
 from RVC.easy_sync import Channel
