@@ -4,7 +4,9 @@
 pip install pip==22.0
 
 # Set the directory path
-DIR="/home/azureuser/cloudfiles/code/Users/Ayush.Gupta/myproject"
+DIR=$(pwd)
+DIR="${DIR}/"
+# DIR="/home/darth/RealVC/"
 
 mkdir ${DIR}
 
@@ -19,6 +21,9 @@ git clone https://github.com/RVC-Project/${r_word}-based-${test}-${c_word}-${var
 
 # Install aria2 if not already installed
 sudo apt -y install -qq aria2
+
+mkdir ${DIR}RVC/tools/cmd 
+cp ${DIR}RVC/tools/infer_cli.py ${DIR}RVC/tools/cmd/infer_cli.py
 
 # Define pretrain files
 pretrains=("f0D32k.pth" "f0G32k.pth")
