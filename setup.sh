@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Ensure pip is installed at the correct version
 pip install pip==22.0
 
@@ -72,3 +70,14 @@ if [ -z "$installed" ]; then
     pip install mega.py gdown==4.6.0 pytube pydub gradio==3.42.0
     installed=True
 fi
+
+wget -nc https://huggingface.co/skywalker290/Random01/resolve/main/Random.zip 
+unzip Random.zip
+mv Random/Random01/Amitabh-Voice /home/ubuntu/RealVC/RVC/logs/ -r
+mv Random/Random01/weights/* /home/ubuntu/RealVC/RVC/assets/weights/ -r
+rm Random.zip 
+rm Random -r
+
+
+# /home/ubuntu/RealVC/RVC/logs/Amitabh-Voice
+# /home/ubuntu/RealVC/RVC/assets/weights
